@@ -10,6 +10,9 @@
 </head>
 <body>
 <div>Liste des vehicules à partir de : ${info}</div>
+<div>
+    <a href="/vehicule/contact">ajouter vehicule</a>
+</div>
 <ul>
     <c:forEach items="${tomobilat}" var="tomobil" varStatus="i">
         <li>${i.count}. ids : ${tomobil.id}, matricule : ${tomobil.matricule}, conducteur : ${tomobil.conducteur}</li>

@@ -6,10 +6,7 @@ import com.example.parking.model.Vehicule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,14 +64,20 @@ public class VehiculeController {
 
     @GetMapping(value = "/contact")
     public String contact(Model model) {
-
+        model.addAttribute("voiture", new Vehicule());
         return "contact";
     }
 
     @PostMapping(value = "/ajouter")
-    public String ajouter(Model model) {
+    public String ajouter(Model model, @ModelAttribute Vehicule vehicule) {
+        vehiculeDao.save(vehicule);
+        System.out.println("post formulaire");
+        List<Vehicule> vehicules = vehiculeDao.findAll();
 
-        return "contact";
+        model.addAttribute("tomobilat", vehicules);
+        model.addAttribute("info", "formulaire + base de données");
+
+        return "vehicules";
     }
 }
 

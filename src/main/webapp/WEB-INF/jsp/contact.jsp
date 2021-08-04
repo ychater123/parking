@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="./fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <title>Contact Form #3</title>
 </head>
@@ -68,28 +69,25 @@
             <div class="col-lg-6">
                 <div class="box">
                     <h3 class="heading">Send us a message</h3>
-                    <form class="mb-5" method="POST" action="/vehicule/ajouter" id="contactForm"  name="contactForm">
+                    <form:form action="/vehicule/ajouter" modelAttribute="voiture" method="post" cssClass="mb-5">
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="conducteur" class="col-form-label">Conducteur</label>
-                                <input type="text" class="form-control" name="conducteur" id="conducteur">
+                                <form:input path="conducteur" cssClass="form-control" name="conducteur" id="conducteur" required="true" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="matricule" class="col-form-label">Matricule</label>
-                                <input type="text" class="form-control" name="matricule" id="matricule">
+                                <form:input path="matricule" cssClass="form-control" name="matricule" id="matricule" required="true" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="submit" value="Submit"
-                                       class="btn btn-block btn-primary rounded-0 py-2 px-4">
-                                <span class="submitting"></span>
+                                <form:button type="submit" class="btn btn-block btn-primary rounded-0 py-2 px-4">Submit</form:button>
                             </div>
                         </div>
-                    </form>
-
+                    </form:form>
                     <div id="form-message-warning mt-4"></div>
                     <div id="form-message-success">
                         Your message was sent, thank you!
@@ -100,10 +98,10 @@
     </div>
 
 
-    <script src="../static/js/jquery-3.3.1.min.js"></script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/jquery.validate.min.js"></script>
-    <script src="../static/js/main.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.validate.min.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>
